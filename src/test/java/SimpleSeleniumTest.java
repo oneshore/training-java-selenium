@@ -14,6 +14,10 @@ public class SimpleSeleniumTest
 	@Before
 	public void setup()
 	{
+		String os = System.getProperty("os.name");
+
+		String chromedriverPath = new ChromeDriverBuilder().getChromeDriverPath(os);
+		System.setProperty("webdriver.chrome.driver", chromedriverPath);
 		driver = new ChromeDriver();
 	}
 
